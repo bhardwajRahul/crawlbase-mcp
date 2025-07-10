@@ -2,14 +2,6 @@
 
 MCP server for [Crawlbase API](https://crawlbase.com) - enables web scraping through Model Context Protocol.
 
-## Setup
-
-1. **Install dependencies:**
-
-   ```bash
-   npm install
-   ```
-
 ## Add to Your Editor
 
 ### Claude Code
@@ -20,8 +12,9 @@ Add to your `claude.json` configuration:
 {
   "mcpServers": {
     "crawlbase": {
-      "command": "node",
-      "args": ["/path/to/crawlbase-mcp/src/mcp-server.js"],
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@crawlbase/mcp@latest"],
       "env": {
         "CRAWLBASE_TOKEN": "your_token_here",
         "CRAWLBASE_JS_TOKEN": "your_js_token_here"
@@ -39,8 +32,9 @@ Add to `.cursor-settings.json`:
 {
   "mcp.servers": {
     "crawlbase": {
-      "command": "node",
-      "args": ["/path/to/crawlbase-mcp/src/mcp-server.js"],
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@crawlbase/mcp@latest"],
       "env": {
         "CRAWLBASE_TOKEN": "your_token_here",
         "CRAWLBASE_JS_TOKEN": "your_js_token_here"
@@ -58,8 +52,9 @@ Add to MCP settings:
 {
   "mcpServers": {
     "crawlbase": {
-      "command": "node",
-      "args": ["/path/to/crawlbase-mcp/src/mcp-server.js"],
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@crawlbase/mcp@latest"],
       "env": {
         "CRAWLBASE_TOKEN": "your_token_here",
         "CRAWLBASE_JS_TOKEN": "your_js_token_here"
