@@ -30,7 +30,7 @@ Add to `.cursor-settings.json`:
 
 ```json
 {
-  "mcp.servers": {
+  "mcpServers": {
     "crawlbase": {
       "type": "stdio",
       "command": "npx",
