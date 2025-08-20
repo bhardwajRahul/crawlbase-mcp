@@ -37,6 +37,26 @@ It handles the complexity of scraping for you:
 }
 ```
 
+### Claude Code
+
+Add to your `claude.json` configuration:
+
+```json
+{
+  "mcpServers": {
+    "crawlbase": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@crawlbase/mcp@latest"],
+      "env": {
+        "CRAWLBASE_TOKEN": "your_token_here",
+        "CRAWLBASE_JS_TOKEN": "your_js_token_here"
+      }
+    }
+  }
+}
+```
+
 ### Cursor IDE
 
 1. Open Cursor IDE → File → Preferences → Cursor Settings → Tools and Integrations → Add Custom MCP
