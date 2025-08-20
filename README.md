@@ -1,3 +1,5 @@
+[![MSeeP.ai Security Assessment Badge](https://mseep.net/pr/crawlbase-crawlbase-mcp-badge.png)](https://mseep.ai/app/crawlbase-crawlbase-mcp)
+
 # What is Crawlbase MCP?
 
 Crawlbase MCP is a Model Context Protocol (MCP) server that bridges AI agents and the live web. Instead of relying on outdated training data, your LLMs can now fetch fresh, structured, real-time content — powered by Crawlbase’s proven crawling infrastructure trusted by 70,000+ developers worldwide.
