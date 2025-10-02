@@ -20,6 +20,7 @@ It handles the complexity of scraping for you:
 
 1. Open Claude Desktop → File → Settings → Developer → Edit Config
 2. Add to `claude_desktop_config.json`:
+3. Replace `your_token_here` and `your_js_token_here` with the tokens from your dashboard.
 
 ```json
 {
@@ -61,6 +62,7 @@ Add to your `claude.json` configuration:
 
 1. Open Cursor IDE → File → Preferences → Cursor Settings → Tools and Integrations → Add Custom MCP
 2. Add to `mcp.json`:
+3. Replace `your_token_here` and `your_js_token_here` with the tokens from your dashboard.
 
 ```json
 {
@@ -82,6 +84,7 @@ Add to your `claude.json` configuration:
 
 1. Open WindSurf IDE → File → Preferences → WindSurf Settings → General → MCP Servers → Manage MCPs → View raw config
 2. Add to `mcp_config.json`:
+3. Replace `your_token_here` and `your_js_token_here` with the tokens from your dashboard.
 
 ```json
 {
