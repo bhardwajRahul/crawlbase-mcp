@@ -178,4 +178,4 @@ Looking to supercharge your AI agents with live web data? Get started here:
 
 [![MSeeP.ai Security Assessment Badge](https://mseep.net/pr/crawlbase-crawlbase-mcp-badge.png)](https://mseep.ai/app/crawlbase-crawlbase-mcp)
 
-Copyright 2025 Crawlbase
+Copyright 2026 Crawlbase
