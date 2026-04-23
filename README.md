@@ -160,6 +160,18 @@ Example prompts:
 - “Take a screenshot of TechCrunch homepage.”
 - “Fetch Tesla investor relations page as HTML.”
 
+### Async Crawling with Cloud Storage
+
+For larger jobs, Crawlbase MCP can push crawl results to [Crawlbase Cloud Storage](https://crawlbase.com/docs/cloud-storage/) instead of returning them immediately. Your AI agent can then come back later to read, list, or clean up those pages — useful when crawling many URLs at once, revisiting a dataset across sessions, or keeping heavy HTML out of the chat until you actually need it.
+
+Example prompts:
+
+- “Crawl these 50 product pages and save them to my Crawlbase storage. Once they're saved, summarize each one.”
+- “Save the Hacker News front page to storage so I can analyze it later.”
+- “How many pages do I have stored in Crawlbase right now? Show me the most recent 20.”
+- “Pull back everything I saved yesterday from my Crawlbase storage and give me a report.”
+- “Delete all the pages I have in Crawlbase storage — I'm done with that project.”
+
 ## Use Cases
 
 - Market research → Pull live data from competitors, news, and reports

@@ -47,6 +47,59 @@ export const CrawlbaseResponseSchema = z.object({
   screenshot: z.string().optional(),
   pdf: z.string().optional(),
   stored_data: z.string().optional(),
+  rid: z.string().optional(),
+  stored_at: z.string().optional(),
+  storage_url: z.string().optional(),
+  token_type: z.enum(['normal', 'js']).optional(),
+});
+
+export const StorageGetParametersSchema = z
+  .object({
+    rid: z.string().optional(),
+    url: z.string().url().optional(),
+    as: z.enum(['json', 'html', 'markdown']).optional(),
+    use_js_token: z.boolean().optional(),
+  })
+  .refine((data) => !!data.rid || !!data.url, {
+    message: 'Either rid or url must be provided',
+  });
+
+export const StorageDeleteParametersSchema = z.object({
+  rid: z.string().min(1),
+  use_js_token: z.boolean().optional(),
+});
+
+export const StorageListParametersSchema = z.object({
+  limit: z.number().int().positive().max(1000).optional(),
+  scroll: z.boolean().optional(),
+  scroll_id: z.string().optional(),
+  scroll_order: z.enum(['asc', 'desc']).optional(),
+  use_js_token: z.boolean().optional(),
+});
+
+export const StorageCountParametersSchema = z.object({
+  use_js_token: z.boolean().optional(),
+});
+
+export const StorageBulkGetParametersSchema = z.object({
+  rids: z.array(z.string().min(1)).min(1).max(100),
+  auto_delete: z.boolean().optional(),
+  as: z.enum(['metadata_only', 'json', 'html', 'markdown']).optional(),
+  use_js_token: z.boolean().optional(),
+});
+
+export const StorageBulkDeleteParametersSchema = z.object({
+  rids: z.array(z.string().min(1)).min(1).max(100),
+  use_js_token: z.boolean().optional(),
+});
+
+export const StorageItemSchema = z.object({
+  stored_at: z.string(),
+  pc_status: z.number(),
+  original_status: z.number(),
+  rid: z.string(),
+  url: z.string(),
+  body: z.string(),
 });
 
 /**
@@ -95,6 +148,45 @@ export const CrawlbaseResponseSchema = z.object({
  * @property {string} [screenshot] - Screenshot data
  * @property {string} [pdf] - PDF data
  * @property {string} [stored_data] - Stored data
+ * @property {string} [rid] - Storage request ID returned when store=true
+ * @property {string} [stored_at] - Timestamp when result was persisted to storage
+ * @property {string} [storage_url] - URL of the stored item, if returned
+ * @property {'normal'|'js'} [token_type] - Which token was used (so the caller knows which storage to query)
+ */
+
+/**
+ * @typedef {object} StorageGetParameters
+ * @property {string} [rid] - Storage request ID
+ * @property {string} [url] - Original crawled URL (use instead of rid)
+ * @property {'json'|'html'|'markdown'} [as] - How to render the body in the tool response
+ * @property {boolean} [use_js_token] - Query the JS token's storage instead of the normal token's
+ */
+
+/**
+ * @typedef {object} StorageListParameters
+ * @property {number} [limit] - Max RIDs (≤1000)
+ * @property {boolean} [scroll] - Enable scroll pagination
+ * @property {string} [scroll_id] - Continuation token from a previous response
+ * @property {'asc'|'desc'} [scroll_order] - Sort direction
+ * @property {boolean} [use_js_token]
+ */
+
+/**
+ * @typedef {object} StorageBulkGetParameters
+ * @property {string[]} rids - Up to 100 RIDs
+ * @property {boolean} [auto_delete] - Delete items after retrieval
+ * @property {'metadata_only'|'json'|'html'|'markdown'} [as] - How to render bodies
+ * @property {boolean} [use_js_token]
+ */
+
+/**
+ * @typedef {object} StorageItem
+ * @property {string} stored_at
+ * @property {number} pc_status
+ * @property {number} original_status
+ * @property {string} rid
+ * @property {string} url
+ * @property {string} body
  */
 
 /**
